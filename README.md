@@ -67,7 +67,6 @@ This simulator exposes different characteristics focused on wearable ring metric
 Run both simulators in parallel to test multi-device BLE flows.
 
 ## Requirements
-
 The project depends on the **bless** library, a Python BLE GATT server implementation. See [requirements.txt](requirements.txt) for detailed version specifications.
 
 Current dependencies:
