@@ -34,7 +34,9 @@ A Bluetooth Low Energy (BLE) peripheral simulator that emulates a health monitor
 
 ## Usage
 
-Run the simulator:
+### Main Simulator (simulator.py)
+
+Run the main health simulator:
 
 ```bash
 python simulator.py
@@ -47,22 +49,33 @@ The simulator will start advertising as a BLE peripheral device and continuously
 - **Temperature**: Custom temperature characteristic (UUID: 12345678-1234-4678-8234-56789abcdef2)
 - **Battery Level**: Battery level characteristic (UUID: 00002a19-0000-1000-8000-00805f9b34fb)
 
-## Service UUID
+### Alternative Simulator (simulator2.py)
 
-- **Primary Service**: 12345678-1234-4678-8234-56789abcdef0
+An alternative BLE peripheral simulator emulating a smart ring wearable device (SensioRing):
 
-All health characteristics are contained within this single service UUID.
+```bash
+python simulator2.py
+```
 
-## Flutter App Integration
+This simulator exposes different characteristics focused on wearable ring metrics:
 
-Update your Flutter app's UUID constants to match:
+- **HRV / Stress Index**: Heart Rate Variability indicator (custom UUID)
+- **Steps Counter**: Daily step count tracking (custom UUID)
+- **Skin Temperature**: Ring sensor temperature readings (custom UUID, different from core body temp)
+- **SpO2 (finger-based)**: Oxygen saturation from finger contact (UUID: 00002a5f-0000-1000-8000-00805f9b34fb)
 
-```dart
-const String primaryServiceUUID = "12345678-1234-4678-8234-56789abcdef0";
-const String hrMeasurementUUID = "00002a37-0000-1000-8000-00805f9b34fb";
-const String spo2UUID = "12345678-1234-4678-8234-56789abcdef1";
-const String temperatureUUID = "12345678-1234-4678-8234-56789abcdef2";
-const String batteryLevelUUID = "00002a19-0000-1000-8000-00805f9b34fb";
+Run both simulators in parallel to test multi-device BLE flows.
+
+## Requirements
+
+The project depends on the **bless** library, a Python BLE GATT server implementation. See [requirements.txt](requirements.txt) for detailed version specifications.
+
+Current dependencies:
+- `bless>=0.3.0` - Python BLE GATT Server for implementing Bluetooth Low Energy peripherals
+
+Install all requirements using:
+```bash
+pip install -r requirements.txt
 ```
 
 ## Technical Details
