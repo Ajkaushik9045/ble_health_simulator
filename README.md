@@ -71,9 +71,11 @@ Run both simulators in parallel to test multi-device BLE flows.
 The project depends on the **bless** library, a Python BLE GATT server implementation. See [requirements.txt](requirements.txt) for detailed version specifications.
 
 Current dependencies:
+
 - `bless>=0.3.0` - Python BLE GATT Server for implementing Bluetooth Low Energy peripherals
 
 Install all requirements using:
+
 ```bash
 pip install -r requirements.txt
 ```
